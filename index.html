@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <!-- bootstrap css -->
+ <link rel="stylesheet" href="https://romeojeremiah.github.io/Counter-Project/css/bootstrap.min.css">
+ <!-- main css -->
+ <style type="text/css">
+   :root {
+  --mainWhite: #f5f5f5;
+  --mainGreen: #7fb800;
+  --mainBlue: #0d2c54;
+  --lightBlue: #00a6ed;
+  --mainBlack: #333333;
+}
+.max-height {
+  min-height: 100vh;
+}
+body {
+  background: url("../img/mainBcg.jpeg") center/cover fixed no-repeat;
+  color: var(--mainWhite);
+}
+.main-container {
+  border: 0.1rem solid var(--mainWhite);
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.9);
+  border-radius: 0.2rem;
+}
+#counter {
+  color: var(--mainGreen);
+  font-size: 10rem;
+  color: var(--mainBlack);
+}
+.prevBtn,
+.nextBtn {
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.9);
+  background: var(--mainBlue);
+  color: var(--mainWhite);
+}
+.prevBtn:hover {
+  background: var(--lightBlue);
+}
+.nextBtn:hover {
+  background: var(--lightBlue);
+}
+ </style>
+ <title>Counter Project</title>
+ <style>
+ </style>
+</head>
+
+<body>
+
+
+ <div class="container">
+  <div class="row max-height align-items-center">
+   <div class="col-10 mx-auto col-md-6 text-center main-container p-5">
+    <h1 class="text-uppercase">counter</h1>
+    <h1 id="counter">0</h1>
+    <div class="btn-container d-flex justify-content-around flex-wrap">
+     <button class="btn counterBtn prevBtn text-uppercase m-2">lower count</button>
+     <button class="btn counterBtn nextBtn text-uppercase m-2">add count</button>
+    </div>
+   </div>
+  </div>
+ </div>
+
+
+
+ <!-- script js -->
+ <script>(function(){
+  const buttons = document.querySelectorAll('.counterBtn')
+  let count= 0
+
+
+  //Add event listeners and functionailty to each button  
+  buttons.forEach(function(button){
+    button.addEventListener('click', function(){
+      if (button.classList.contains('prevBtn')){
+        count--
+      } else if (button.classList.contains('nextBtn')){
+        count++
+      }
+
+      //Select the counter text
+      const counter = document.querySelector('#counter')
+      counter.textContent = count
+
+      if (count < 0 ){
+        counter.style.color = 'red'
+      } else if (count > 0){
+        counter.style.color = 'green'
+      } else {
+        counter.style.color = '#333333'
+      }
+    })
+  })
+})()</script>
+</body>
+
+</html>
